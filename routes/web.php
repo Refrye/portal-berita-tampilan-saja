@@ -18,6 +18,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [NewsController::class, 'index']);
+Route::post('/news', [NewsController::class, 'store'])->middleware(['auth', 'verified'])->name('create.news');
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
